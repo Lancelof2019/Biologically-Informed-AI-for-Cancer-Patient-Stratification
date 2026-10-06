@@ -2,7 +2,8 @@
 
 Cancer exhibits profound heterogeneity at genetic, epigenetic, and clinical levels, complicating accurate diagnosis, prognosis, and treatment. While large-scale initiatives like The Cancer Genome Atlas (TCGA) offer rich multi-omics datasets, integrative analysis remains challenging due to data sparsity, noise, and high dimensionality. Existing deep learning methods often ignore underlying gene regulatory structures and lack biological interpretability. Here, we propose a biologically informed, community-aware multimodal framework for stratifying patients across 31 cancer types. We construct cancer-specific gene regulatory networks by integrating TCGA transcriptomic and epigenomic data with known interactions from the OmniPath database. Gene communities are identified via the Spinglass algorithm and encoded using a customized autoencoder with a modality-wise self-attention mechanism, enabling dynamic integration of gene expression and DNA methylation. This modular design yields interpretable, low-dimensional embeddings for each patient, supporting robust stratification and survival analysis. Our results demonstrate improved biological coherence, scalability, and clinical relevance compared to conventional models, highlighting the potential of community-based multimodal learning in precision oncology.
 
-![image](https://github.com/user-attachments/assets/0a2c6569-b6f4-42cd-8f6f-5d9dcb71306e)
+<img width="1916" height="1083" alt="442951902-0a2c6569-b6f4-42cd-8f6f-5d9dcb71306e" src="https://github.com/user-attachments/assets/a4f72dec-d183-4f8a-9d11-9fa0035cbb04" />
+
  
 # Pre-requisites:
 - Rocky Linux 8.10 (Green Obsidian) in Puhti Supercomputer of CSC - IT Center for Science Ltd.
@@ -47,7 +48,8 @@ project-root/
 └── README.md
 ```
 - Process workflow   
-![image](https://github.com/user-attachments/assets/7e0cdf54-ca49-46f2-b2bb-0b078d1b3e7e)
+<img width="1855" height="869" alt="460628905-7e0cdf54-ca49-46f2-b2bb-0b078d1b3e7e" src="https://github.com/user-attachments/assets/735df510-aed1-4059-924b-704c049b014a" />
+
 
 # Overview of processing
 **1.Get General disease network with Omnipath and create cancer-specific network**  
@@ -140,19 +142,22 @@ The script will be executed for patients classification in tumor stage with the 
 - The patients classification(BLCA):
   
 <p align="center">
-<img src="https://github.com/user-attachments/assets/339a5420-468a-4e1f-8a60-71304fcb70f6" width="400" height="300"> 
+<img width="663" height="663" alt="447824388-339a5420-468a-4e1f-8a60-71304fcb70f6" src="https://github.com/user-attachments/assets/cafb9344-a2e6-401e-bbb9-6b292cf2906d" />
+
 </p>
 
 - The patinets survival time prediction(BLCA):
   
 <p align="center">
-<img src="https://github.com/user-attachments/assets/deabdcbf-f640-41a3-aad4-9134aa0187f8" width="300" height="300">
+<img width="875" height="877" alt="447824130-deabdcbf-f640-41a3-aad4-9134aa0187f8" src="https://github.com/user-attachments/assets/7fb67e44-0da2-4b70-ad60-d0afc6775c2b" />
+
 </p>
 
 **8.Enrichment analysis**   
 ```sh gsea_handling.sh```, this script calls R script of `gsea_handing.R`.Before we obtain the file we need to use ```cnv_data.R``` and ```react_catg.R``` to get copy number variant data and reactome catagories information.In order to get the multi-catagories result from  `react_catg.R` the file `reactome_pathway-categories_anja-hartewig.RData` from path `input_files/` should be loaded as input data. Similarly，the files released from `input_files/cgt_pack.zip` must be loaded in script file `cnv_data.R` for obtaining CNV matrix. These files are related to 'Copy number change at the gene level, GISTIC2 thresholded', which can be found under the link https://www.linkedomics.org/login.php. Based on reactome catagory and cnv data, the script can be used for enrichment analysis. With shap value and patients clustering, the program results in gene mapping pathways in reactome,genes with community lable,and druggable target genes. If you would like to use `drug_db` file,please download the file under the link https://drive.google.com/drive/folders/1rRQ0wU3RJWrook7h-1EtSBSxVqJhqZFW?usp=sharing.
 <p align="center">
-<img src="https://github.com/user-attachments/assets/986e3284-f79b-4951-818e-d45b60b7e9ff" width="450" height="300">
+<img width="1805" height="1050" alt="453839903-986e3284-f79b-4951-818e-d45b60b7e9ff (1)" src="https://github.com/user-attachments/assets/fe233275-16ad-48db-9595-dacbc262fbef" />
+
 </p>
 
 
